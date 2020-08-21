@@ -7,9 +7,9 @@
     "sort-packages": true
   },
   "require": {
-    "php": ">=7.1",
+    "php": ">=7.2",
     "doctrine/orm": "^2.7",
-    "pimcore/pimcore": "~5.8.0",
+    "pimcore/pimcore": "~6.7.0",
     "platformsh/config-reader": "^2.3",
     "wikimedia/composer-merge-plugin": "^1.4"
   },
@@ -32,21 +32,17 @@
     "post-create-project-cmd": "Pimcore\\Composer::postCreateProject",
     "post-install-cmd": [
       "Pimcore\\Composer::postInstall",
-      "@symfony-scripts"
+      "@pimcore-scripts"
     ],
     "post-update-cmd": [
       "Pimcore\\Composer::postUpdate",
-      "@symfony-scripts",
-      "Pimcore\\Composer::executeMigrationsUp"
+      "@pimcore-scripts",
+      "Pimcore\\Composer::executeMigrationsUp",
+      "@pimcore-scripts"
     ],
-    "pre-package-update": [
-      "Pimcore\\Composer::prePackageUpdate"
-    ],
-    "symfony-scripts": [
-      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    "pimcore-scripts": [
+      "Pimcore\\Composer::clearCache",
+      "Pimcore\\Composer::installAssets"
     ]
   },
   "extra": {
