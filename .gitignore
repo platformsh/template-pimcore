@@ -8,7 +8,9 @@
 /web/bundles/
 
 # local config
-/.env
+/.env.local
+/.env.local.php
+/.env.*.local
 !/app/config/local
 /app/config/local/*
 !app/config/local/.gitkeep
@@ -25,7 +27,7 @@
 /var/classes/DataObject
 
 !/var/config
-/var/config/system.php
+/var/config/system.yml
 /var/config/debug-mode.php
 /var/config/maintenance.php
 
@@ -58,3 +60,10 @@ nbproject
 /tools/
 /website/
 .temp
+
+# Ignore mounts
+var
+web/var
+pimcore
+web/pimcore
+web/bundles
